@@ -1,0 +1,23 @@
+name: Docker Build Test
+
+on:
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: docker/build-push-action@v3.3.0
+      with:
+        context: .
+        tags: local:test
+        push: false
+
+    - uses: addnab/docker-run-action@v3
+      with:
+        image: local:test
+        run: echo "hello world"
