@@ -56,8 +56,8 @@ jobs:
 
     - name: git push
       run: |
-        git config --global user.name github-actions
-        git config --global user.email some@email.com
+        git config --global user.name "Raanan"
+        git config --global user.email "raakatz97@gmail.com"
         git add apps/webapp/kustomization.yaml
         git commit -m "pushed by github actions for ${{ env.NEW_TAG }}"
         git push
